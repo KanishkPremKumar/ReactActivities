@@ -1,43 +1,47 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-//import App from './App';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-class Student extends React.Component
- {
-  constructor(props)
-   {
-    super(props)
-    this.state = {
-      name: "Reena",
-      grade: 5,
-      favourite_color: "green",
-      favourite_subject: "Math"
-    };
+const demo = ReactDOM.createRoot(document.getElementById('demo'));
+class MyStyling extends React.Component {
+  render() {
+    const myheaderstyle = {
+      color: "green",
+      backgroundColor: "skyblue",
+      fontFamily: "Arial",
+      padding: "5px"
+};
+const mystyle = {
+  color: "blue",
+  background: "pink",
+  fontFamily: "Times New Roman",
+  padding: "10px"
+};
+return (
+  <div>
+    <h1 style={myheaderstyle}>Hi</h1>
+    <p style={mystyle}>How are you?</p>
+  </div>
+);
   }
-  favouriteColor = () => {
-    this.setState({favourite_color: "black"});
-  }
-  favouriteSubject = () => {
-    this.setState({favourite_subject: "English"});
-  }
-  render() 
-  {
+}
+class Info extends React.Component {
+  render () {
     return (
       <div>
-        <h1>Student Details</h1>
-        <p>My name is {this.state.name}</p>
-        <p>I am in grade {this.state.grade}</p>
-        <p>My favorite colour is {this.state.favourite_color}</p>
-        <p>My favorite subject is {this.state.favourite_subject}</p>
-        <button type="button" onClick={this.favouriteColor}>Click Me</button>
-        <button type="button" onClick={this.favouriteSubject}>Click Me To Change Fav Subject</button>  
-        </div>   
+        <h1 className="nstyle">Kanishk</h1>
+        <p className="addstyle">Bangalore</p>
+      </div>
     );
   }
 }
-root.render(<Student/>);
+root.render(<MyStyling/>);
+demo.render(<Info />);
 
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
